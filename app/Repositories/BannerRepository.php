@@ -18,6 +18,7 @@ class BannerRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'name',
+        'link',
     ];
 
     /**

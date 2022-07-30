@@ -34,16 +34,24 @@ class ApiReviewController extends Controller
             $input = $request->all();
             $user = User::where('user_id', $input['user_id'])->first();
             if (!$user) {
-                $response = ['code' => 2, 'message_code' => 3];
 
-                return response()->json($response, 422);
+                $user = User::create([
+                    'user_id' => $input['user_id'],
+                    'review_message' => $input['review_message'],
+                    'rating' => $input['rating'],
+                    'fcm_token' => $input['fcm_token'],
+                    'user_token' => $input['user_token'],
+                ]);
+
+            } else {
+                $user->update([
+                    'review_message' => $input['review_message'],
+                    'rating' => $input['rating'],
+                    'fcm_token' => $input['fcm_token'],
+                    'user_token' => $input['user_token'],
+                ]);
+
             }
-            $user->update([
-               'review_message' => $input['review_message'],
-               'rating' => $input['rating'],
-                'fcm_token' => $input['fcm_token'],
-                'user_token' => $input['user_token'],
-            ]);
 
             $response = ['code' => 1, 'message_code' => 1, 'result' => $user];
             DB::commit();

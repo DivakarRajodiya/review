@@ -10,7 +10,7 @@ var tableName = '#bannersTbl';
 var usersTable = $(tableName).DataTable({
   processing: true,
   serverSide: true,
-  'order': [[2, 'desc']],
+  'order': [[4, 'desc']],
   ajax: {
     url: bannersUrl,
     data: function data(_data) {}
@@ -23,10 +23,18 @@ var usersTable = $(tableName).DataTable({
     'width': '65px'
   }, {
     'targets': [1],
-    'orderable': false,
+    'orderable': true,
     'className': 'text-center'
   }, {
     'targets': [2],
+    'orderable': true,
+    'className': 'text-center'
+  }, {
+    'targets': [3],
+    'orderable': false,
+    'className': 'text-center'
+  }, {
+    'targets': [4],
     'visible': false
   }],
   columns: [{
@@ -43,6 +51,11 @@ var usersTable = $(tableName).DataTable({
       return "".concat(row.name);
     },
     name: 'name'
+  }, {
+    data: function data(row) {
+      return "".concat(row.link);
+    },
+    name: 'link'
   }, {
     data: function data(row) {
       return "\n                <a title=\"Edit\" class=\"btn btn-warning btn-sm action-btn edit-btn\" href=\"".concat(bannersUrl + row.id + '/edit', "\">\n                    <i class=\"fa fa-edit\"></i>\n                </a>\n                <a title=\"Delete\" class=\"btn btn-danger action-btn btn-sm delete-btn\" data-id=\"").concat(row.id, "\" onclick=\"deleteData(").concat(row.id, ")\" href=\"javascript:void(0)\">\n                    <i class=\"fa fa-trash\"></i>\n                </a>");

@@ -26,7 +26,7 @@ class UpdateBannerRequest extends FormRequest
     public function rules()
     {
         $rules = Banner::$rules;
-        $rules['email'] = 'unique:users,email,' . $this->user->id . 'id';
+        //$rules['email'] = 'unique:users,email,' . $this->user->id . 'id';
 
         return $rules;
     }

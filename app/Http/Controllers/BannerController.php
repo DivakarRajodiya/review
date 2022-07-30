@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\DataTables\BannerDataTable;
 use App\Http\Requests\CreateBannerRequest;
+use App\Http\Requests\UpdateBannerRequest;
 use App\Models\Banner;
 use App\Repositories\BannerRepository;
 use Illuminate\Contracts\Foundation\Application;

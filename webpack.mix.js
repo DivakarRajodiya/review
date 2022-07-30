@@ -34,8 +34,6 @@ mix.js('public/js/scripts.js', 'public/js/scripts.min.js')
     .js('resources/assets/js/banners/banners.js', 'public/assets/js/banners/banners.js')
     .js('resources/assets/js/banners/create_edit.js', 'public/assets/js/banners/create_edit.js')
     .js('resources/assets/js/settings/setting.js', 'public/assets/js/settings/setting.js')
-    .js('resources/assets/js/emergencies/emergencies.js', 'public/assets/js/emergencies/emergencies.js')
-    .js('resources/assets/js/maps/maps.js', 'public/assets/js/maps/maps.js')
     .js('resources/assets/js/reviews/reviews.js', 'public/assets/js/reviews/reviews.js')
     .version();
 

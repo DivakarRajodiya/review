@@ -4,6 +4,11 @@
     {!! Form::text('name', old('name'), ['class' => 'form-control '. ($errors->has('name') ? 'is-invalid':''), 'required']) !!}
     <div class="invalid-feedback">{{ $errors->first('name') }}</div>
 </div>
+<div class="form-group col-xl-6 col-md-6 col-sm-12">
+    {!! Form::label('link', 'Link:') !!}<span class="text-danger">*</span>
+    {!! Form::text('link', old('link'), ['class' => 'form-control '. ($errors->has('link') ? 'is-invalid':''), 'required']) !!}
+    <div class="invalid-feedback">{{ $errors->first('link') }}</div>
+</div>
 
 
 <!-- Photo Field -->

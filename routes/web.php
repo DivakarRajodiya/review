@@ -33,9 +33,17 @@ Route::get('/clear-cache', function () {
 Route::get('/run-migration', function () {
     Artisan::call('migrate --path=database/migrations/2014_10_12_000000_create_users_table.php');
     Artisan::call('migrate --path=database/migrations/2014_10_12_100000_create_password_resets_table.php');
+    Artisan::call('migrate --path=vendor/laravel/passport/database/migrations/2016_06_01_000001_create_oauth_auth_codes_table.php');
+    Artisan::call('migrate --path=vendor/laravel/passport/database/migrations/2016_06_01_000002_create_oauth_access_tokens_table.php');
+    Artisan::call('migrate --path=vendor/laravel/passport/database/migrations/2016_06_01_000003_create_oauth_refresh_tokens_table.php');
+    Artisan::call('migrate --path=vendor/laravel/passport/database/migrations/2016_06_01_000004_create_oauth_clients_table.php');
+    Artisan::call('migrate --path=vendor/laravel/passport/database/migrations/2016_06_01_000005_create_oauth_personal_access_clients_table.php');
     Artisan::call('migrate --path=database/migrations/2019_08_19_000000_create_failed_jobs_table.php');
     Artisan::call('migrate --path=database/migrations/2021_10_05_182535_create_media_table.php');
     Artisan::call('migrate --path=database/migrations/2021_10_08_184648_create_settings_table.php');
+    Artisan::call('migrate --path=database/migrations/2021_10_16_120954_create_notifications_table.php');
+    Artisan::call('migrate --path=database/migrations/2022_07_19_191210_create_banners_table.php');
+
     Artisan::call('db:seed --class=DatabaseSeeder');
 
     return Artisan::output();

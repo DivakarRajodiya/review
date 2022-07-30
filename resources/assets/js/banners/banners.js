@@ -4,7 +4,7 @@ let tableName = '#bannersTbl';
 let usersTable = $(tableName).DataTable({
     processing: true,
     serverSide: true,
-    'order': [[2, 'desc']],
+    'order': [[4, 'desc']],
     ajax: {
         url: bannersUrl,
         data: function (data) {
@@ -21,11 +21,21 @@ let usersTable = $(tableName).DataTable({
         },
         {
             'targets': [1],
-            'orderable': false,
+            'orderable': true,
             'className': 'text-center',
         },
         {
             'targets': [2],
+            'orderable': true,
+            'className': 'text-center',
+        },
+        {
+            'targets': [3],
+            'orderable': false,
+            'className': 'text-center',
+        },
+        {
+            'targets': [4],
             'visible': false,
         },
     ],
@@ -48,6 +58,12 @@ let usersTable = $(tableName).DataTable({
                 return `${row.name}`;
             },
             name: 'name',
+        },
+        {
+            data: function (row) {
+                return `${row.link}`;
+            },
+            name: 'link',
         },
         {
             data: function (row) {

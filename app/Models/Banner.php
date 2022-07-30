@@ -21,6 +21,7 @@ class Banner extends Model implements HasMedia
      */
     public static $rules = [
         'name' => 'required',
+        'link' => 'required',
     ];
 
     public $table = 'banners';
@@ -32,6 +33,7 @@ class Banner extends Model implements HasMedia
      */
     protected $fillable = [
         'name',
+        'link',
     ];
 
     protected $appends = ['image_url'];
