@@ -18,21 +18,13 @@ class CreateUsersTable extends Migration
             $table->string('user_id')->nullable();
             $table->string('name')->nullable();
             $table->string('email')->unique()->nullable();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
-            $table->string('phone')->nullable();
-            $table->text('address')->nullable();
 
-            $table->integer('ads_click')->nullable();
-            $table->integer('admob_ads_click')->nullable();
-            $table->integer('fb_ads_click')->nullable();
-            $table->boolean('is_block_user')->nullable();
-            $table->integer('app_version')->nullable();
             $table->string('rating')->nullable();
             $table->text('review_message')->nullable();
-            $table->time('click_time')->nullable();
             $table->text('fcm_token')->nullable();
             $table->text('user_token')->nullable();
+            $table->string('install_app')->nullable();
 
             $table->rememberToken();
             $table->timestamps();

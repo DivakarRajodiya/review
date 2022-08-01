@@ -9,6 +9,17 @@
     {!! Form::text('link', old('link'), ['class' => 'form-control '. ($errors->has('link') ? 'is-invalid':''), 'required']) !!}
     <div class="invalid-feedback">{{ $errors->first('link') }}</div>
 </div>
+<div class="form-group col-xl-6 col-md-6 col-sm-12">
+    <div class="form-group">
+        <div class="control-label">{!! Form::label('is_app', 'IsApp:') !!}<span class="text-danger">*</span></div>
+        <label class="custom-switch mt-2 p-0">
+            <input type="checkbox" name="is_app" {{ isset($banner) && $banner->is_app == \App\Models\Banner::ENABLE ? 'checked' : '' }} class="custom-switch-input is-app-toggle">
+            <span class="custom-switch-indicator"></span>
+        </label>
+    </div>
+    <div class="invalid-feedback">{{ $errors->first('is_app') }}</div>
+</div>
+
 
 
 <!-- Photo Field -->

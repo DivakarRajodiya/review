@@ -19,12 +19,9 @@ class DefaultUserSeeder extends Seeder
         $input = [
             'name' => 'Super Admin',
             'email' => 'admin@admin.com',
-            'email_verified_at' => Carbon::now(),
             'password' => Hash::make('123456'),
-            'phone' => 1234567890,
-            'address' => 'surat',
         ];
 
-        $user = User::create($input);
+        User::create($input);
     }
 }

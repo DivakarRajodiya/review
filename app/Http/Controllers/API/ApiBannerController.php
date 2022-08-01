@@ -17,8 +17,17 @@ class ApiBannerController extends Controller
     public function getBanners()
     {
         $banners = Banner::all();
+        $data = [];
+        foreach ($banners as $banner){
+            $data[] = [
+              'url' => $banner->image_url,
+              'name' => $banner->name,
+              'link' => $banner->link,
+              'is_app' => $banner->is_app,
+            ];
+        }
 
-        return response()->json(['code' => 1, 'message_code' => 1, 'result' => $banners]);
+        return response()->json(['code' => 1, 'message_code' => 1, 'result' => $data]);
     }
 
     /**
@@ -36,7 +45,14 @@ class ApiBannerController extends Controller
                 $banner->addMedia($input['photo'])->toMediaCollection(Banner::IMAGE_PATH, config('app.media_disc'));
             }
 
-            $response = ['code' => 1, 'message_code' => 1, 'result' => $banner];
+            $data = [
+                'url' => $banner->image_url,
+                'name' => $banner->name,
+                'link' => $banner->link,
+                'is_app' => $banner->is_app,
+            ];
+
+            $response = ['code' => 1, 'message_code' => 1, 'result' => $data];
             DB::commit();
 
             return response()->json($response, 200);

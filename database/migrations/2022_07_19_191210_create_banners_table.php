@@ -17,6 +17,7 @@ class CreateBannersTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('link')->nullable();
+            $table->boolean('is_app')->default(false);
             $table->timestamps();
         });
     }

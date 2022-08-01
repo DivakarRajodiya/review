@@ -13,6 +13,8 @@ class Banner extends Model implements HasMedia
 
     public const IMAGE_PATH = 'banners';
 
+    public const ENABLE = 1;
+    public const DISABLE = 0;
 
     /**
      * Validation rules
@@ -34,6 +36,7 @@ class Banner extends Model implements HasMedia
     protected $fillable = [
         'name',
         'link',
+        'is_app',
     ];
 
     protected $appends = ['image_url'];

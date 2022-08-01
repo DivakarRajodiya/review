@@ -34,7 +34,6 @@ class ReviewController extends AppBaseController
     public function sendNotification(Request $request)
     {
         $input = $request->all();
-        dd($input);
         $user = User::find($input['id']);
 
         //
@@ -44,7 +43,7 @@ class ReviewController extends AppBaseController
             $myRequest = new Request();
             $myRequest->setMethod('POST');
             $myRequest->request->add(['user_id' => $user->id]);
-            $myRequest->request->add(['title' => 'Review']);
+            $myRequest->request->add(['title' => $input['title']]);
             $myRequest->request->add(['text' => $input['message']]);
             $settingImage = Setting::where('key', 'logo')->first();
             if ($settingImage) {

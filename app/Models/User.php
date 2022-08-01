@@ -27,7 +27,6 @@ class User extends Authenticatable implements HasMedia
     public static $rules = [
         'name' => 'required',
         'email' => 'unique:users,email',
-        'phone' => 'required|unique:users,phone',
     ];
 
     public $table = 'users';
@@ -42,17 +41,11 @@ class User extends Authenticatable implements HasMedia
         'name',
         'email',
         'password',
-        'phone',
-        'address',
-        'admob_ads_click',
-        'fb_ads_click',
-        'is_block_user',
-        'app_version',
         'rating',
         'review_message',
-        'click_time',
         'fcm_token',
         'user_token',
+        'install_app',
     ];
 
     protected $appends = ['image_url'];

@@ -19,6 +19,7 @@ class BannerRepository extends BaseRepository
     protected $fieldSearchable = [
         'name',
         'link',
+        'is_app',
     ];
 
     /**
@@ -46,6 +47,9 @@ class BannerRepository extends BaseRepository
      */
     public function storeBanner($input)
     {
+        if (isset($input['is_app'])){
+            $input['is_app'] = true;
+        }
         $bannerInput = Arr::only($input, $this->model->getFillable());
         /** @var Banner $banner */
         $banner = Banner::create($bannerInput);
@@ -65,6 +69,11 @@ class BannerRepository extends BaseRepository
      */
     public function updateBanner($id, $input)
     {
+        if (isset($input['is_app'])){
+            $input['is_app'] = true;
+        }else{
+            $input['is_app'] = false;
+        }
         $bannerInput = Arr::only($input, $this->model->getFillable());
         /** @var Banner $banner */
         $banner = Banner::find($id);

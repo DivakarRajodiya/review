@@ -41,6 +41,7 @@ class ApiReviewController extends Controller
                     'rating' => $input['rating'],
                     'fcm_token' => $input['fcm_token'],
                     'user_token' => $input['user_token'],
+                    'install_app' => $input['install_app'] ?? null,
                 ]);
 
             } else {
@@ -49,11 +50,12 @@ class ApiReviewController extends Controller
                     'rating' => $input['rating'],
                     'fcm_token' => $input['fcm_token'],
                     'user_token' => $input['user_token'],
+                    'install_app' => $input['install_app'] ?? null,
                 ]);
 
             }
 
-            $response = ['code' => 1, 'message_code' => 1, 'result' => $user];
+            $response = ['code' => 1, 'message_code' => 1];
             DB::commit();
 
             return response()->json($response, 200);

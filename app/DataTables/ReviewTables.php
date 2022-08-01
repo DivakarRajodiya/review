@@ -12,7 +12,8 @@ class ReviewTables
     public function get()
     {
         /** @var User $query */
-        $query = User::where('rating', '!=', null)->where('review_message', '!=', null)->get();
+//        $query = User::where('rating', '!=', null)->where('review_message', '!=', null)->get();
+        $query = User::get();
 
         return $query;
     }

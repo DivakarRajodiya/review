@@ -58,7 +58,7 @@ window.sendNotification = function (id) {
   swal({
     title: 'Notification !',
     html: true,
-    text: '<div class="alert alert-warning swal__alert">\n' + '<strong class="swal__text-warning">' + 'Are you sure want to sent message ?' + '</strong></div> <textarea id="message" class="form-control mt-5 w-100" placeholder="Please type message."></textarea>',
+    text: '<div class="alert alert-warning swal__alert">\n' + '<strong class="swal__text-warning">' + 'Are you sure want to sent message ?' + '</strong></div> <textarea id="title" class="form-control mt-5 w-100" placeholder="Please enter title."></textarea> <textarea id="message" class="form-control mt-3 w-100" placeholder="Please type message."></textarea>',
     showCancelButton: true,
     closeOnConfirm: false,
     showLoaderOnConfirm: true,
@@ -68,6 +68,13 @@ window.sendNotification = function (id) {
     confirmButtonText: 'Yes'
   }, function () {
     var message = $('#message').val();
+    var title = $('#title').val();
+
+    if (title == '') {
+      swal.showInputError('Please enter title!');
+      $('.sa-input-error').removeClass('show');
+      return false;
+    }
 
     if (message == '') {
       swal.showInputError('Please enter message!');
@@ -82,7 +89,8 @@ window.sendNotification = function (id) {
       url: reviewsUrl + id + '/send-notification',
       data: {
         id: id,
-        message: message
+        message: message,
+        title: title
       },
       success: function success(data) {
         if (data.success) {
