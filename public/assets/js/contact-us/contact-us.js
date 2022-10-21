@@ -26,6 +26,10 @@ var usersTable = $(tableName).DataTable({
     'className': 'text-center'
   }, {
     'targets': [4],
+    'orderable': false,
+    'className': 'text-center'
+  }, {
+    'targets': [5],
     'visible': false
   }],
   columns: [{
@@ -48,15 +52,12 @@ var usersTable = $(tableName).DataTable({
       return "".concat(row.message);
     },
     name: 'message'
-  }, // {
-  //     data: function (row) {
-  //         return `
-  //         <a title="Delete" class="btn btn-danger action-btn btn-sm delete-btn" data-id="${row.id}" onclick="deleteData(${row.id})" href="javascript:void(0)">
-  //             <i class="fa fa-trash"></i>
-  //         </a>`;
-  //     }, name: 'id',
-  // },
-  {
+  }, {
+    data: function data(row) {
+      return "\n                <a title=\"Delete\" class=\"btn btn-danger action-btn btn-sm delete-btn\" data-id=\"".concat(row.id, "\" onclick=\"deleteData(").concat(row.id, ")\" href=\"javascript:void(0)\">\n                    <i class=\"fa fa-trash\"></i>\n                </a>");
+    },
+    name: 'id'
+  }, {
     data: 'created_at',
     name: 'created_at'
   }]

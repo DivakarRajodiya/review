@@ -5,7 +5,7 @@
         <th scope="col" class="font-weight-600">Email</th>
         <th scope="col" class="font-weight-600">Subject</th>
         <th scope="col" class="font-weight-600">Message</th>
-{{--        <th scope="col" class="font-weight-600">Action</th>--}}
+        <th scope="col" class="font-weight-600">Action</th>
     </tr>
     </thead>
     <tbody></tbody>

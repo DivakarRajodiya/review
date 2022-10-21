@@ -25,6 +25,11 @@ let usersTable = $(tableName).DataTable({
         },
         {
             'targets': [4],
+            'orderable': false,
+            'className': 'text-center',
+        },
+        {
+            'targets': [5],
             'visible': false,
         },
     ],
@@ -53,14 +58,14 @@ let usersTable = $(tableName).DataTable({
             },
             name: 'message',
         },
-        // {
-        //     data: function (row) {
-        //         return `
-        //         <a title="Delete" class="btn btn-danger action-btn btn-sm delete-btn" data-id="${row.id}" onclick="deleteData(${row.id})" href="javascript:void(0)">
-        //             <i class="fa fa-trash"></i>
-        //         </a>`;
-        //     }, name: 'id',
-        // },
+        {
+            data: function (row) {
+                return `
+                <a title="Delete" class="btn btn-danger action-btn btn-sm delete-btn" data-id="${row.id}" onclick="deleteData(${row.id})" href="javascript:void(0)">
+                    <i class="fa fa-trash"></i>
+                </a>`;
+            }, name: 'id',
+        },
         {
             data: 'created_at',
             name: 'created_at',

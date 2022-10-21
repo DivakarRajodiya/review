@@ -20,7 +20,7 @@
 </li>
 <li class="side-menus {{ Request::is('contact-us*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('contact-us.index') }}">
-        <i class="fas fa-comments"></i><span>Radhika Technology</span>
+        <i class="fas fa-compact-disc"></i><span>Radhika Technology</span>
     </a>
 </li>
 <li class="side-menus {{ Request::is('settings*') ? 'active' : '' }}">

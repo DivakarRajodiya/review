@@ -112,6 +112,6 @@ Route::delete('reviews/{user}', [ReviewController::class, 'destroy'])->name('rev
 
 // Contact us
 Route::resource('contact-us', ContactUsController::class)->except(['update', 'edit', 'destroy']);
-Route::delete('contact-us/{contact-us}', [ContactUsController::class, 'destroy'])->name('contact-us.destroy');
+Route::delete('contact-us/{contactUs}', [ContactUsController::class, 'destroy'])->name('contact-us.destroy');
 
 Auth::routes();
