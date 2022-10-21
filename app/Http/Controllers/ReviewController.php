@@ -54,9 +54,7 @@ class ReviewController extends AppBaseController
             $notification->sendNotify($myRequest);
         }
 
-        $this->sendSuccess('Notification sent successfully.');
-
-        return true;
+        return $this->sendSuccess('Notification sent successfully.');
     }
 
     /**
