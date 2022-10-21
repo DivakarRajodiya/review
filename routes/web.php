@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\ReviewController;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Route;
@@ -70,6 +71,12 @@ Route::get('/notification-migration', function () {
     return Artisan::output();
 });
 
+Route::get('/contact-us-migration', function () {
+    Artisan::call('migrate --path=database/migrations/2022_10_18_194908_create_contact_us_table.php');
+
+    return Artisan::output();
+});
+
 Route::get('/', function () {
     return redirect('login');
 });
@@ -102,5 +109,9 @@ Route::post('settings', [SettingController::class, 'update'])->name('settings.up
 Route::resource('reviews', ReviewController::class)->except(['update', 'edit', 'destroy']);
 Route::post('reviews/{user}/send-notification', [ReviewController::class, 'sendNotification'])->name('reviews.send-notification');
 Route::delete('reviews/{user}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+
+// Contact us
+Route::resource('contact-us', ContactUsController::class)->except(['update', 'edit', 'destroy']);
+Route::delete('contact-us/{contact-us}', [ContactUsController::class, 'destroy'])->name('contact-us.destroy');
 
 Auth::routes();

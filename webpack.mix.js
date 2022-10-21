@@ -35,6 +35,7 @@ mix.js('public/js/scripts.js', 'public/js/scripts.min.js')
     .js('resources/assets/js/banners/create_edit.js', 'public/assets/js/banners/create_edit.js')
     .js('resources/assets/js/settings/setting.js', 'public/assets/js/settings/setting.js')
     .js('resources/assets/js/reviews/reviews.js', 'public/assets/js/reviews/reviews.js')
+    .js('resources/assets/js/contact-us/contact-us.js', 'public/assets/js/contact-us/contact-us.js')
     .version();
 
 
