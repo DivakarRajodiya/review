@@ -1,5 +1,5 @@
 <li class="side-menus {{ Request::is('dashboard*') ? 'active' : '' }}">
-    <a class="nav-link" href="/public/dashboard">
+    <a class="nav-link" href="{{ route('home') }}">
         <i class="fas fa-building"></i><span>Dashboard</span>
     </a>
 </li>
