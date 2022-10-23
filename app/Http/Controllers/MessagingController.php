@@ -72,7 +72,8 @@ class MessagingController extends Controller
         //echo $result;
 
         curl_close($curl_session);
-        if ($result) {
+        $result = json_decode($result);
+        if ($result && $result->success && $result->success == 1) {
             if ($chat == "false") {
                 // add to database
                 $input = [
@@ -86,9 +87,11 @@ class MessagingController extends Controller
                     'read' => 0,
                 ];
                 Notification::create($input);
+
+                return  true;
             }
         } else {
-            echo curl_error($curl_session);
+            return false;
         }
     }
 

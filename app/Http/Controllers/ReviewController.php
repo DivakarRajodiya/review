@@ -51,10 +51,14 @@ class ReviewController extends AppBaseController
             }
             /** @var MessagingController $notification */
             $notification = App::make(MessagingController::class);
-            $notification->sendNotify($myRequest);
+            $response = $notification->sendNotify($myRequest);
+
+            if ($response){
+                return $this->sendSuccess('Notification sent successfully.');
+            }
         }
 
-        return $this->sendSuccess('Notification sent successfully.');
+        return $this->sendError('Notification not sent.');
     }
 
     /**
